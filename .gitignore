@@ -1,0 +1,4 @@
+*.class
+junit4.10/*.class
+lib/*
+!lib/*.jar
