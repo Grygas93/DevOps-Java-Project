@@ -40,7 +40,7 @@ class Dec2Hex {
             String hex = decimalToHex(num);
 
             // Print the hexadecimal result or "0" if the result is empty
-            logger.info("Hexadecimal representation: " + (hex.isEmpty() ? "0" : hex));
+            logger.info(String.format("Hexadecimal representation: %s", hex.isEmpty() ? "0" : hex));
 
         } catch (NumberFormatException e) {
 
