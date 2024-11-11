@@ -1,5 +1,5 @@
 import java.util.logging.Logger;
-
+// Anna Grygas Dec2Hex Project
 class Dec2Hex {
 
     // Initialize the logger
