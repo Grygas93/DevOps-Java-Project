@@ -1,26 +1,36 @@
+import java.util.logging.Logger;
+
 class Dec2Hex {
+
+    // Initialize the logger
+    private static final Logger logger = Logger.getLogger(Dec2Hex.class.getName());
+
+    // Method to convert a decimal number to hexadecimal representation
+
     public static String decimalToHex(int num) {
          if (num == 0) {
         return "0";
     }
+      // Array representing hexadecimal characters
         char[] ch = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         int rem;
-        String hexadecimal = "";
+        StringBuilder hexadecimal = new StringBuilder(); //Using StringBuilder for efficiency
 
         // Convert decimal number to hexadecimal
         while(num != 0) {
             rem = num % 16;
-            hexadecimal = ch[rem] + hexadecimal;
+            hexadecimal.insert(0, ch[rem]);
             num = num / 16;
         }
 
-        return hexadecimal;
+        return hexadecimal.toString();
     }
 
     public static void main(String[] args) {
+
         // Check if an input argument is provided
         if (args.length == 0) {
-            System.out.println("Please provide a decimal number as a command-line argument.");
+            logger.warning("Please provide a decimal number as a command-line argument.");
             return;
         }
 
@@ -30,10 +40,12 @@ class Dec2Hex {
             String hex = decimalToHex(num);
 
             // Print the hexadecimal result or "0" if the result is empty
-            System.out.println("Hexadecimal representation: " + (hex.isEmpty() ? "0" : hex));
+            logger.info("Hexadecimal representation: " + (hex.isEmpty() ? "0" : hex));
+
         } catch (NumberFormatException e) {
+
             // Handle non-integer input gracefully by printing an error message
-            System.out.println("Invalid input. Please enter a valid integer.");
+            logger.severe("Invalid input. Please enter a valid integer.");
         }
     }
 }
