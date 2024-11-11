@@ -39,8 +39,10 @@ class Dec2Hex {
             int num = Integer.parseInt(args[0]);
             String hex = decimalToHex(num);
 
-            // Print the hexadecimal result or "0" if the result is empty
+            // Conditionally log the hexadecimal result or "0" if the result is empty
+        if (logger.isLoggable(java.util.logging.Level.INFO)) {
             logger.info(String.format("Hexadecimal representation: %s", hex.isEmpty() ? "0" : hex));
+        }
 
         } catch (NumberFormatException e) {
 
